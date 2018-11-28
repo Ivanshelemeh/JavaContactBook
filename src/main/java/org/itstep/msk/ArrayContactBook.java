@@ -2,6 +2,7 @@ package org.itstep.msk;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 
 /**
  * The most simple implementation of the contact repository
@@ -11,8 +12,9 @@ import java.util.Collections;
  * @author Марк Михайлович
  * @version 1.0
  * */
-public final class ArrayContactBook implements SimpleContactBook {
+public final class ArrayContactBook implements SimpleContactBook,FindByName {
     private final ArrayList<Contact> contacts;
+
 
     public ArrayContactBook(ArrayList<Contact> contacts) {
         this.contacts = contacts;
@@ -31,12 +33,19 @@ public final class ArrayContactBook implements SimpleContactBook {
     }
 
     @Override
-    public Iterable<Contact> read() {
+    public Iterable<ExtendedContact> read() {
         return Collections.unmodifiableCollection(contacts);
     }
 
     @Override
     public SimpleContactBook commit() {
         return null;
+    }
+
+    @Override
+    public Iterator<Contact> findByName(String name) {
+        return contacts.iterator();
+
+
     }
 }

@@ -1,14 +1,22 @@
 package org.itstep.msk;
 
-public  class ExtendedContact{
-    private String nameNumres;
+import java.util.Set;
 
-    public String getNameNumres() {
-        return nameNumres;
+public  class ExtendedContact{
+    private Contact origin;
+    private Set<String> anotherphoneNumber;
+
+    public ExtendedContact(Contact origin, Set<String> anotherphoneNumber) {
+        this.origin = origin;
+        this.anotherphoneNumber = anotherphoneNumber;
     }
 
-    public ExtendedContact(String nameNumres) {
-        this.nameNumres = nameNumres;
+    public Contact getOrigin() {
+        return origin;
+    }
+
+    public Set<String> getAnotherphoneNumber() {
+        return anotherphoneNumber;
     }
 }
 
